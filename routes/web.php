@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,32 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+Route::get('/',[ItemController::class,'showItem']);
+
+Route::get('/add',[ItemController::class,'addItem']);
+
+
+Route::get('/delete/{sno}',[ItemController::class,'deleteItem']);
+
+
+Route::get('/edit/{sno}',[ItemController::class,'editItem']);
+
+
+Route::get('/update',[ItemController::class,'updateItem']);
+
+Route::get('/deleteAll',[ItemController::class,'deleteAllItem']);
+
+
+// Route::get('/edit',function(){
+//     return view('edit');
 // });
-
-// // Route::get('/demo',function() {
-// //     return view ('demo');
-// // });
-
-// // Route::get('/demo/{name}/{id?}',function($name,$id=null) {
-// //     // return view ('demo');
-// //     echo $name." ";
-// //     echo $id ;
-// // });
-
-// Route::get('/demo/{name}/{id?}',function($name,$id=null) {
-//     $data = compact('name','id');
-//     // print_r($data);
-//     return view('demo')->with($data);
-
-// });
-
-// Route::any('/test',function(){
-//     echo "post method";
-// });
-
-
-Route::get('/{name}',function($name){
-    return view ('home');
-});
